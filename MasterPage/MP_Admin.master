@@ -28,7 +28,7 @@
                                     <div class="uk-offcanvas-bar">
                                         <ul class="uk-nav uk-nav-default">
                                             <li class="uk-nav-header">Ventas</li>
-                                            <li class="uk-active"><a href="#">Realizar Venta</a></li>
+                                            <li><a href="#">Realizar Venta</a></li>
                                             <li><a href="#">Ver Ventas</a></li>
                                             <li class="uk-nav-divider"></li>
                                             <li class="uk-nav-header">Productos</li>
@@ -42,14 +42,13 @@
                             </li>
                             <li><a href="#">Item</a></li>
                             <li>
-                                <a href="#">Mantenedores</a>
+                                <a href="#">Gestion</a>
                                 <div class="uk-navbar-dropdown">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
                                         <li class="uk-active"><a href="#">Active</a></li>
                                         <li><a href="#">Usuarios</a></li>
-                                        <li><a href="#">Productos</a></li>
                                         <li><a href="#">Tiendas</a></li>
-                                        <li><a href="#">Item</a></li>
+                                        <li><a href="#">Conexiones</a></li>
                                     </ul>
                                 </div>
                             </li>

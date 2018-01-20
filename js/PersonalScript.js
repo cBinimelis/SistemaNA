@@ -1,3 +1,8 @@
-﻿function Vacio() {
-    UIkit.notification({ message: 'No puedes dejar campos vacios', status: 'warning', pos: 'bottom-right' })
+﻿function Alerta(mens,stat) {
+    swal({
+        title: "Un momento",
+        text: mens,
+        icon: stat,
+        dangerMode: true,
+    })
 }

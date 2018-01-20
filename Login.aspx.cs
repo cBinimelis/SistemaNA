@@ -10,4 +10,17 @@ public partial class Login : System.Web.UI.Page
     {
 
     }
+
+    protected void btn_login_Click(object sender, EventArgs e)
+    {
+        if (txt_username.Text.Trim().Equals("") || txt_password.Text.Trim().Equals(""))
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Vacio();", true);
+        }
+        else
+        {
+            Session["Admin"] = txt_username.Text;
+            Response.Redirect("NavAdmin/Inicio.aspx");
+        }
+    }
 }

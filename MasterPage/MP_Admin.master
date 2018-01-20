@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MP_Admin.master.cs" Inherits="MasterPage_MP_Admin" %>
+
+<!DOCTYPE html>
+
+
+<html lang="es-cl">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ambiente Privado</title>
+    <link type="text/css" rel="stylesheet" href="../css/uikit.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../js/uikit.min.js"></script>
+    <script src="../js/uikit-icons.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="uk-position-relative">
+            <img src="../docs/images/light.jpg" alt="">
+            <div class="uk-position-top">
+                <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+                    <div class="uk-navbar-left">
+                        <ul class="uk-navbar-nav">
+                            <li class="uk-active">
+                                <a href="#Menu" uk-toggle>Menu</a>
+                                <div id="Menu" uk-offcanvas>
+                                    <div class="uk-offcanvas-bar">
+                                        <ul class="uk-nav uk-nav-default">
+                                            <li class="uk-nav-header">Ventas</li>
+                                            <li class="uk-active"><a href="#">Realizar Venta</a></li>
+                                            <li><a href="#">Ver Ventas</a></li>
+                                            <li class="uk-nav-divider"></li>
+                                            <li class="uk-nav-header">Productos</li>
+                                            <li><a href="#">Item</a></li>
+                                            <li><a href="#">Item</a></li>
+                                            <li class="uk-nav-divider"></li>
+                                            <li><a href="#">Item</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="#">Item</a></li>
+                            <li>
+                                <a href="#">Mantenedores</a>
+                                <div class="uk-navbar-dropdown">
+                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                        <li class="uk-active"><a href="#">Active</a></li>
+                                        <li><a href="#">Usuarios</a></li>
+                                        <li><a href="#">Productos</a></li>
+                                        <li><a href="#">Tiendas</a></li>
+                                        <li><a href="#">Item</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="Default.aspx">Salir</a></li>
+                        </ul>
+                    </div>
+                    <div class="uk-navbar-right">
+                        <a href="Inicio.aspx" class="uk-navbar-item uk-logo">LOGO</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="../js/PersonalScript.js"></script>
+</body>
+</html>

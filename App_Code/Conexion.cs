@@ -17,8 +17,6 @@ public class Conexion
 
 
     SqlConnection con;
-    SqlCommand sqlcm;
-    SqlDataReader sqldr;
 
 
     public Conexion()

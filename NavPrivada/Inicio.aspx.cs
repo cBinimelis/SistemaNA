@@ -22,7 +22,21 @@ public partial class NavAdmin_Inicio : System.Web.UI.Page
         System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(1, 1, PixelFormat.Format32bppArgb);
 
         g = Graphics.FromImage(bmp);
-        code.DrawCode128(g, TextBox1.Text, 0, 0).Save(Server.MapPath("../img/barcodes/bc.png"), ImageFormat.Png);
+        code.DrawCode128(g, txt_codigo.Text, 0, 0).Save(Server.MapPath("../img/barcodes/bc.png"), ImageFormat.Png);
         Image1.ImageUrl = "../img/barcodes/bc.png";
+    }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        txt_codigo.Text = GridView1.SelectedRow.Cells[1].Text;
+    }
+
+    protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridView1, "Select$" + e.Row.RowIndex);
+            e.Row.Attributes["style"] = "cursor:pointer";
+        }
     }
 }

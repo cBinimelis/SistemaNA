@@ -14,7 +14,7 @@ namespace LabelKit
     {
         public BarcodeGenerator()
         {
-            width = 300;
+            width = 185;
             height = 60;
             humanReadable = true;
             fontSize = 12;

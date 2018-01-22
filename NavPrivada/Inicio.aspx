@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="uk-section uk-align-center">
         <div class="uk-container">
             <div class="uk-card uk-card-body uk-card-secondary">
@@ -10,7 +11,8 @@
                     <h1 class="uk-card-title uk-align-center">Generador de Codigo de Barra</h1>
                 </div>
                 <div uk-grid>
-                    <div class="uk-width-1-2">
+                    <div class="uk-width-1-2@m uk-overflow-auto">
+
                         <asp:GridView ID="GridView1" CssClass="uk-table uk-table-small" runat="server" AutoGenerateColumns="False" DataKeyNames="IdProducto" DataSourceID="ConBDNAnahi" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
                             <Columns>
                                 <asp:BoundField DataField="IdProducto" HeaderText="IdProducto" InsertVisible="False" ReadOnly="True" SortExpression="IdProducto" Visible="False" />
@@ -26,7 +28,7 @@
                         <asp:LinkButton ID="lnkDummy" runat="server"></asp:LinkButton>
                         <asp:SqlDataSource ID="ConBDNAnahi" runat="server" ConnectionString="<%$ ConnectionStrings:bd_nanahiConS %>" SelectCommand="SELECT * FROM [Productos]"></asp:SqlDataSource>
                     </div>
-                    <div class="uk-width-1-2">
+                    <div class="uk-width-1-2@m">
                         <div class="uk-card uk-card-default">
                             <asp:Image ID="Image1" CssClass="uk-align-center uk-margin" runat="server" Height="100px" Width="200" />
                         </div>
@@ -35,7 +37,6 @@
                             <asp:TextBox ID="txt_codigo" CssClass="uk-input" runat="server"></asp:TextBox>
                         </div>
                         <asp:Button ID="btn_generar" CssClass="uk-button uk-button-secondary uk-width-1-1" runat="server" OnClick="btn_generar_Click" Text="Generar Codigo" />
-                    </div>
 
                 </div>
 

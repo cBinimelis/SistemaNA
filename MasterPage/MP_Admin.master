@@ -32,11 +32,11 @@
                                 <li><a href="#">Ver Ventas</a></li>
                                 <li class="uk-nav-divider"></li>
                                 <li class="uk-nav-header">Gestion</li>
-                                <li><a href="#">Usuarios</a></li>
+                                <li><a href="GestionUsuarios.aspx">Usuarios</a></li>
                                 <li><a href="#">Tiendas</a></li>
                                 <li><a href="#">Conexiones</a></li>
                                 <li class="uk-nav-divider"></li>
-                                <li><a href="Default.aspx">Salir</a></li>
+                                <li><a href="../Default.aspx">Salir</a></li>
                             </ul>
                         </div>
                     </div>
@@ -60,8 +60,7 @@
                             <a href="#">Gestion</a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li class="uk-active"><a href="#">Active</a></li>
-                                    <li><a href="#">Usuarios</a></li>
+                                    <li><a href="GestionUsuarios.aspx">Usuarios</a></li>
                                     <li><a href="#">Tiendas</a></li>
                                     <li><a href="#">Conexiones</a></li>
                                 </ul>
@@ -71,10 +70,10 @@
                     </ul>
                 </div>
                 <div class="uk-navbar-center uk-hidden@m">
-                    <a href="Inicio.aspx" class="uk-navbar-item uk-logo">LOGO</a>
+                    <a href="../NavPrivada/Inicio.aspx" class="uk-navbar-item uk-logo">LOGO</a>
                 </div>
                 <div class="uk-navbar-right uk-visible@m">
-                    <a href="Inicio.aspx" class="uk-navbar-item uk-logo">LOGO</a>
+                    <a href="../NavPrivada/Inicio.aspx" class="uk-navbar-item uk-logo">LOGO</a>
                 </div>
             </div>
 

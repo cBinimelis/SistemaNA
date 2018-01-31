@@ -1,4 +1,4 @@
-﻿function Alerta(mens,stat) {
+﻿function Alerta(mens, stat) {
     swal({
         title: "Un momento",
         text: mens,

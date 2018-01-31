@@ -66,7 +66,11 @@ public partial class NavPrivada_GestionUsuarios : System.Web.UI.Page
 
     protected void GrillaUsuarios_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-
+        if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != GrillaUsuarios.EditIndex)
+        {
+            string id = e.Row.Cells[0].Text;
+            (e.Row.Cells[6].Controls[2] as LinkButton).Attributes["onclick"] = "javascript:return Delete('"+this+"','event');";
+        }
     }
 
     protected void GrillaUsuarios_RowEditing(object sender, GridViewEditEventArgs e)
@@ -88,7 +92,7 @@ public partial class NavPrivada_GestionUsuarios : System.Web.UI.Page
 
     protected void GrillaUsuarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-
+        Mensaje("Usuario Eliminado del sistema", "success");
     }
 
     private void Mensaje(String Msg, String Stat)

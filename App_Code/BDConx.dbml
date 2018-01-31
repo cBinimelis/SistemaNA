@@ -9,6 +9,22 @@
       <Column Name="Password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="IdEstadoUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdTipoUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="EstadoUsuario_Usuarios" Member="EstadoUsuario" ThisKey="IdEstadoUsuario" OtherKey="IdEstadoUsuario" Type="EstadoUsuario" IsForeignKey="true" />
+      <Association Name="TipoUsuario_Usuarios" Member="TipoUsuario" ThisKey="IdTipoUsuario" OtherKey="IdTipoUsuario" Type="TipoUsuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstadoUsuario" Member="EstadoUsuario">
+    <Type Name="EstadoUsuario">
+      <Column Name="IdEstadoUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="EstadoUsuario_Usuarios" Member="Usuarios" ThisKey="IdEstadoUsuario" OtherKey="IdEstadoUsuario" Type="Usuarios" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoUsuario" Member="TipoUsuario">
+    <Type Name="TipoUsuario">
+      <Column Name="IdTipoUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TipoUsuario_Usuarios" Member="Usuarios" ThisKey="IdTipoUsuario" OtherKey="IdTipoUsuario" Type="Usuarios" />
     </Type>
   </Table>
 </Database>

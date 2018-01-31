@@ -33,15 +33,13 @@
                     <div class="uk-width-1-4@m">
                         <p>Estado</p>
                         <div class="uk-inline">
-                            <span class="uk-form-icon" uk-icon="icon: users"></span>
-                            <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="dd_estado" CssClass="uk-select uk-form-width-medium" runat="server" ForeColor="#999999"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="uk-width-1-4@m">
                         <p>Tipo</p>
                         <div class="uk-inline">
-                            <span class="uk-form-icon" uk-icon="icon: user"></span>
-                            <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="dd_tipo"  CssClass="uk-select uk-form-width-medium" runat="server" ForeColor="#999999"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="uk-width-1-2@m">
@@ -56,6 +54,16 @@
                         <div class="uk-inline">
                             <span class="uk-form-icon" uk-icon="icon: lock"></span>
                             <asp:TextBox ID="txt_ConfPass" CssClass="uk-input uk-form-width-large" runat="server" TextMode="Password"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-1">
+                        <div class="uk-inline uk-position-bottom-center uk-position-relative">
+                            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <asp:Button ID="btn_crear" CssClass="uk-button uk-button-secondary uk-button-large uk-width-1-1" runat="server" Text="Crear Usuario" OnClick="btn_crear_Click" />
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
                         </div>
                     </div>
                 </div>
@@ -117,9 +125,9 @@
                                 <asp:TextBox ID="txt_Tipo" runat="server" Text='<%# Eval("IdTipoUsuario") %>'></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
-                        <asp:CommandField ButtonType="Link" ShowEditButton="true" ControlStyle-CssClass=" uk-icon" EditText="<a uk-icon='icon: file-edit'></a>"
-                            CancelText="<a uk-icon='icon: close'></a>" UpdateText="<a uk-icon='icon: check'></a>"
-                            ShowDeleteButton="true" DeleteText="<a uk-icon='icon: trash'></a>" />
+                        <asp:CommandField ButtonType="Link" ShowEditButton="true"  EditText="<span uk-icon='icon: file-edit'></span>"
+                            CancelText="<span uk-icon='icon: close'></span>" UpdateText="<span uk-icon='icon: check'></span>"
+                            ShowDeleteButton="true" DeleteText="<span uk-icon='icon: trash'></span>" />
                     </Columns>
                 </asp:GridView>
             </div>

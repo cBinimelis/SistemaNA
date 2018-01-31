@@ -7,24 +7,60 @@ using System.Web.UI.WebControls;
 
 public partial class NavPrivada_GestionUsuarios : System.Web.UI.Page
 {
+    BDConxDataContext bdc;
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if (Session.ToString() != "Admin")
-        //{
-        //    Response.Redirect("../NavPrivada/Inicio.aspx");
-        //}
-
         if (!this.IsPostBack)
         {
             this.BindGrid();
+            llenaEstado();
+            llenaTipo();
         }
     }
     private void BindGrid()
     {
-        using (BDConxDataContext bdc = new BDConxDataContext())
+        bdc = new BDConxDataContext();
+        GrillaUsuarios.DataSource = from Usuarios in bdc.Usuarios select Usuarios;
+        GrillaUsuarios.DataBind();
+    }
+
+    private void llenaEstado()
+    {
+        bdc = new BDConxDataContext();
+        dd_estado.DataSource = bdc.EstadoUsuario;
+        dd_estado.DataTextField = "Descripcion";
+        dd_estado.DataValueField = "IdEstadoUsuario";
+        dd_estado.DataBind();
+    }
+
+    private void llenaTipo()
+    {
+        bdc = new BDConxDataContext();
+        dd_tipo.DataSource = bdc.TipoUsuario;
+        dd_tipo.DataTextField = "Descripcion";
+        dd_tipo.DataValueField = "IdTipoUsuario";
+        dd_tipo.DataBind();
+    }
+
+    protected void btn_crear_Click(object sender, EventArgs e)
+    {
+        try
         {
-            GrillaUsuarios.DataSource = from Usuarios in bdc.Usuarios select Usuarios;
-            GrillaUsuarios.DataBind();
+            if (txt_NombreN.Text.Trim().Equals("") || txt_ApellidoN.Text.Trim().Equals("") || txt_CorreoN.Text.Trim().Equals("") || txt_PasswordN.Text.Trim().Equals("") || txt_ConfPass.Text.Trim().Equals(""))
+            {
+                Mensaje("No puedes dejar campos vacios", "warning");
+            }
+            else
+            {
+                if(txt_PasswordN.Text != txt_ConfPass.Text)
+                {
+                    Mensaje("Las contraseñas no coinciden", "info");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+
         }
     }
 
@@ -35,12 +71,14 @@ public partial class NavPrivada_GestionUsuarios : System.Web.UI.Page
 
     protected void GrillaUsuarios_RowEditing(object sender, GridViewEditEventArgs e)
     {
-
+        GrillaUsuarios.EditIndex = e.NewEditIndex;
+        this.BindGrid();
     }
 
     protected void GrillaUsuarios_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
     {
-
+        GrillaUsuarios.EditIndex = -1;
+        this.BindGrid();
     }
 
     protected void GrillaUsuarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -52,4 +90,10 @@ public partial class NavPrivada_GestionUsuarios : System.Web.UI.Page
     {
 
     }
+
+    private void Mensaje(String Msg, String Stat)
+    {
+        ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Alerta('" + Msg + "','" + Stat + "');", true);
+    }
+
 }

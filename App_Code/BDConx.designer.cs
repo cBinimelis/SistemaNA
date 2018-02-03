@@ -93,6 +93,14 @@ public partial class BDConxDataContext : System.Data.Linq.DataContext
 			return this.GetTable<TipoUsuario>();
 		}
 	}
+	
+	public System.Data.Linq.Table<vUsuarios> vUsuarios
+	{
+		get
+		{
+			return this.GetTable<vUsuarios>();
+		}
+	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuarios")]
@@ -608,6 +616,159 @@ public partial class TipoUsuario : INotifyPropertyChanging, INotifyPropertyChang
 	{
 		this.SendPropertyChanging();
 		entity.TipoUsuario = null;
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vUsuarios")]
+public partial class vUsuarios
+{
+	
+	private string _Nombre;
+	
+	private string _Apellido;
+	
+	private string _Correo;
+	
+	private string _Password;
+	
+	private int _IdEstadoUsuario;
+	
+	private string _DescEstado;
+	
+	private int _IdTipoUsuario;
+	
+	private string _DescTipo;
+	
+	public vUsuarios()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string Nombre
+	{
+		get
+		{
+			return this._Nombre;
+		}
+		set
+		{
+			if ((this._Nombre != value))
+			{
+				this._Nombre = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string Apellido
+	{
+		get
+		{
+			return this._Apellido;
+		}
+		set
+		{
+			if ((this._Apellido != value))
+			{
+				this._Apellido = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Correo", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+	public string Correo
+	{
+		get
+		{
+			return this._Correo;
+		}
+		set
+		{
+			if ((this._Correo != value))
+			{
+				this._Correo = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string Password
+	{
+		get
+		{
+			return this._Password;
+		}
+		set
+		{
+			if ((this._Password != value))
+			{
+				this._Password = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstadoUsuario", DbType="Int NOT NULL")]
+	public int IdEstadoUsuario
+	{
+		get
+		{
+			return this._IdEstadoUsuario;
+		}
+		set
+		{
+			if ((this._IdEstadoUsuario != value))
+			{
+				this._IdEstadoUsuario = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescEstado", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string DescEstado
+	{
+		get
+		{
+			return this._DescEstado;
+		}
+		set
+		{
+			if ((this._DescEstado != value))
+			{
+				this._DescEstado = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoUsuario", DbType="Int NOT NULL")]
+	public int IdTipoUsuario
+	{
+		get
+		{
+			return this._IdTipoUsuario;
+		}
+		set
+		{
+			if ((this._IdTipoUsuario != value))
+			{
+				this._IdTipoUsuario = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescTipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string DescTipo
+	{
+		get
+		{
+			return this._DescTipo;
+		}
+		set
+		{
+			if ((this._DescTipo != value))
+			{
+				this._DescTipo = value;
+			}
+		}
 	}
 }
 #pragma warning restore 1591

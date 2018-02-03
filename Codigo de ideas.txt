@@ -1,0 +1,13 @@
+﻿Para asignar codigo de barra
+        int contador = 0;
+        String Ident = "";
+        SqlDataReader usuarios = sql.consulta("SELECT * FROM Usuarios");
+        while (usuarios.Read())
+        {
+            contador++;
+        }
+        while (Convert.ToString(contador).Length != 5)
+        {
+            Ident = "0" + Convert.ToString(contador);
+        }
+        Mensaje("Contador", Ident, "info");

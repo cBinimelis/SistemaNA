@@ -48,13 +48,13 @@ public partial class NavPrivada_GestionUsuarios : System.Web.UI.Page
         {
             if (txt_NombreN.Text.Trim().Equals("") || txt_ApellidoN.Text.Trim().Equals("") || txt_CorreoN.Text.Trim().Equals("") || txt_PasswordN.Text.Trim().Equals("") || txt_ConfPass.Text.Trim().Equals(""))
             {
-                Mensaje("No puedes dejar campos vacios", "warning");
+                Mensaje("No tan rapido", "No puedes dejar campos vacios", "warning");
             }
             else
             {
                 if(txt_PasswordN.Text != txt_ConfPass.Text)
                 {
-                    Mensaje("Las contraseñas no coinciden", "info");
+                    Mensaje("Mas cuidado","Las contraseñas no coinciden", "info");
                 }
             }
         }
@@ -68,8 +68,7 @@ public partial class NavPrivada_GestionUsuarios : System.Web.UI.Page
     {
         if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != GrillaUsuarios.EditIndex)
         {
-            string id = e.Row.Cells[0].Text;
-            (e.Row.Cells[6].Controls[2] as LinkButton).Attributes["onclick"] = "javascript:return Delete('"+this+"','event');";
+            (e.Row.Cells[6].Controls[2] as LinkButton).Attributes["onclick"] = "return Delete(this, event);";
         }
     }
 
@@ -92,12 +91,12 @@ public partial class NavPrivada_GestionUsuarios : System.Web.UI.Page
 
     protected void GrillaUsuarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        Mensaje("Usuario Eliminado del sistema", "success");
+        Mensaje("Felicidades","Usuario Eliminado del sistema", "success");
     }
 
-    private void Mensaje(String Msg, String Stat)
+    private void Mensaje(String Tit, String Msg, String Stat)
     {
-        ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Alerta('" + Msg + "','" + Stat + "');", true);
+        ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Alerta('"+ Tit + "','" + Msg + "','" + Stat + "');", true);
     }
 
 }

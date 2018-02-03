@@ -16,7 +16,7 @@ public partial class Login : System.Web.UI.Page
     {
         if (txt_username.Text.Trim().Equals("") || txt_password.Text.Trim().Equals(""))
         {
-            Mensaje("No puedes dejar campos vacios.", "warning");
+            Mensaje("Sin prisas","No puedes dejar campos vacios.", "warning");
         }
         else
         {
@@ -41,27 +41,27 @@ public partial class Login : System.Web.UI.Page
                             }
                             break;
                         case 2:
-                            Mensaje("Tu cuenta esta temporalmente inactiva", "info");
+                            Mensaje("Hay un detalle","Tu cuenta esta temporalmente inactiva", "info");
                             break;
                         case 3:
-                            Mensaje("Tu cuenta ha sido eliminada", "error");
+                            Mensaje("Ouch","Tu cuenta ha sido eliminada", "error");
                             break;
                     }
                 }
                 else
                 {
-                    Mensaje("Contraseña incorrecta", "error");
+                    Mensaje("Un Momento","Contraseña incorrecta", "error");
                 }
             }
             else
             {
-                Mensaje("El correo no se encuentra registrado", "warning");
+                Mensaje("No lo encontré", "El correo no se encuentra registrado", "warning");
             }
         }
     }
 
-    private void Mensaje(String Msg, String Stat)
+    private void Mensaje(String Tit, String Msg, String Stat)
     {
-        ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Alerta('" + Msg + "','" + Stat + "');", true);
+        ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Alerta('" +Tit + "','" + Msg + "','" + Stat + "');", true);
     }
 }

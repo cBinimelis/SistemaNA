@@ -9,8 +9,11 @@
     <title>Ambiente Privado</title>
     <link type="text/css" rel="stylesheet" href="../css/uikit.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
     <script src="../js/uikit.min.js"></script>
     <script src="../js/uikit-icons.min.js"></script>
+    <script src="../js/PersonalScript.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -84,8 +87,5 @@
             </div>
         </form>
     </div>
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/sweetalert.min.js"></script>
-    <script src="../js/PersonalScript.js"></script>
 </body>
 </html>

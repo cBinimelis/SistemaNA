@@ -11,8 +11,8 @@ function Delete(ctl, event) {
     var defaultAction = $(ctl).prop("href");
     event.preventDefault();
     swal({
-        title: "Confirmacion",
-        text: "Quieres borrar esto?",
+        title: "Para evitar errores...",
+        text: "¿Estás seguro de querer borrar esto?",
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -21,7 +21,11 @@ function Delete(ctl, event) {
             window.location.href = defaultAction;
             return true;
         } else {
-            swal("Your imaginary file is safe!");
+            swal({
+                title: "Estuvo bien preguntar",
+                text: "No se ha eliminado nada",
+                icon: "info"
+            });
             return false;
         }
     });

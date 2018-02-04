@@ -85,11 +85,10 @@ public partial class NavPrivada_GestionUsuarios : System.Web.UI.Page
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            var dd = e.Row.Cells[4].Controls[1] as DropDownList;
-            if (null != dd)
-            {
-                dd.DataBind();
-            }
+            var dde = (DropDownList)e.Row.FindControl("dd_estado");
+            sql.llenacombo(dde, "SELECT * FROM EstadoUsuario", "Descripcion", "IdEstadoUsuario");
+            var ddt = (DropDownList)e.Row.FindControl("dd_tipo");
+            sql.llenacombo(ddt, "SELECT * FROM TipoUsuario", "Descripcion", "IdTipoUsuario");
         }
 
         if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != GrillaUsuarios.EditIndex)

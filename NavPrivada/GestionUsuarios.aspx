@@ -73,7 +73,7 @@
 
     <div class="uk-align-center">
         <div class="uk-container">
-            <div class="uk-card uk-card-body uk-card-default">
+            <div class="uk-card uk-card-body uk-card-default uk-overflow-auto">
                 <asp:GridView ID="GrillaUsuarios" CssClass="uk-table uk-table-divider uk-table-small" runat="server" AutoGenerateColumns="False" BorderStyle="None" GridLines="None" OnRowCancelingEdit="GrillaUsuarios_RowCancelingEdit" OnRowDataBound="GrillaUsuarios_RowDataBound" OnRowDeleting="GrillaUsuarios_RowDeleting" OnRowEditing="GrillaUsuarios_RowEditing" OnRowUpdating="GrillaUsuarios_RowUpdating">
                     <Columns>
                         <asp:TemplateField HeaderText="Nombre">
@@ -81,7 +81,7 @@
                                 <asp:Label ID="lbl_Nombre" runat="server" Text='<%# Eval("Nombre") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Nombre" runat="server" Text='<%# Eval("Nombre") %>'></asp:TextBox>
+                                <asp:TextBox ID="txt_Nombre" CssClass="uk-input" runat="server" Text='<%# Eval("Nombre") %>'></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Apellido">
@@ -89,7 +89,7 @@
                                 <asp:Label ID="lbl_Apellido" runat="server" Text='<%# Eval("Apellido") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Apellido" runat="server" Text='<%# Eval("Apellido") %>'></asp:TextBox>
+                                <asp:TextBox ID="txt_Apellido" CssClass="uk-input" runat="server" Text='<%# Eval("Apellido") %>'></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Correo">
@@ -97,7 +97,7 @@
                                 <asp:Label ID="lbl_Correo" runat="server" Text='<%# Eval("Correo") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Correo" runat="server" Text='<%# Eval("Correo") %>'></asp:TextBox>
+                                <asp:TextBox ID="txt_Correo" CssClass="uk-input" runat="server" Text='<%# Eval("Correo") %>'></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Contraseña">
@@ -105,7 +105,7 @@
                                 <asp:Label ID="lbl_Password" runat="server" Text=*****></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Password" runat="server" Text='<%# Eval("Password") %>' TextMode="Password"></asp:TextBox>
+                                <asp:TextBox ID="txt_Password" CssClass="uk-input" runat="server" Text='<%# Eval("Password") %>' TextMode="Password"></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Estado">
@@ -113,7 +113,7 @@
                                 <asp:Label ID="lbl_Estado" runat="server" Text='<%# Eval("DescEstado") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:DropDownList ID="dd_estado" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="dd_estado" CssClass="uk-select" runat="server"></asp:DropDownList>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Tipo">
@@ -121,7 +121,7 @@
                                 <asp:Label ID="lbl_Tipo" runat="server" Text='<%# Eval("DescTipo") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:DropDownList ID="dd_tipo" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="dd_tipo" CssClass="uk-select" runat="server"></asp:DropDownList>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:CommandField ButtonType="Link" ShowEditButton="true"  EditText="<span uk-icon='icon: file-edit'></span>"
@@ -133,58 +133,3 @@
         </div>
     </div>
 </asp:Content>
-
-<%--<Columns>
-                        <asp:TemplateField HeaderText="Nombre">
-                            <ItemTemplate>
-                                <asp:Label ID="lbl_Nombre" runat="server" Text='<%# Eval("Nombre") %>'></asp:Label>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_Nombre" runat="server" Text='<%# Eval("Nombre") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Apellido">
-                            <ItemTemplate>
-                                <asp:Label ID="lbl_Apellido" runat="server" Text='<%# Eval("Apellido") %>'></asp:Label>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_Apellido" runat="server" Text='<%# Eval("Apellido") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Correo">
-                            <ItemTemplate>
-                                <asp:Label ID="lbl_Correo" runat="server" Text='<%# Eval("Correo") %>'></asp:Label>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_Correo" runat="server" Text='<%# Eval("Correo") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Contraseña">
-                            <ItemTemplate>
-                                <asp:Label ID="lbl_Password" runat="server" Text='<%# Eval("Password") %>'></asp:Label>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_Password" runat="server" Text='<%# Eval("Password") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Estado">
-                            <ItemTemplate>
-                                <asp:Label ID="lbl_Estado" runat="server" Text='<%# Eval("IdEstadoUsuario") %>'></asp:Label>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_Estado" runat="server" Text='<%# Eval("IdEstadoUsuario") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Tipo">
-                            <ItemTemplate>
-                                <asp:Label ID="lbl_Tipo" runat="server" Text='<%# Eval("IdTipoUsuario") %>'></asp:Label>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_Tipo" runat="server" Text='<%# Eval("IdTipoUsuario") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
-                        <asp:CommandField ButtonType="Link" ShowEditButton="true"  EditText="<span uk-icon='icon: file-edit'></span>"
-                            CancelText="<span uk-icon='icon: close'></span>" UpdateText="<span uk-icon='icon: check'></span>"
-                            ShowDeleteButton="true" DeleteText="<span uk-icon='icon: trash'></span>" />
-                    </Columns>--%>

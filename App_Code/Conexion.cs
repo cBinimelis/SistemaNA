@@ -116,10 +116,11 @@ public class Conexion
             SqlDataAdapter da = new SqlDataAdapter(sentencia, con);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            cb.DataSource = ds.Tables[0].DefaultView;
+            cb.DataSource = ds;
             cb.DataTextField = display;
             cb.DataValueField = value;
             cb.DataBind();
+            cb.Items.Insert(0, new ListItem("--Seleccionar--", "0"));
             con.Close();
         }
         catch (Exception ex)

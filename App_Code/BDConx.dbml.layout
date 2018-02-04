@@ -34,10 +34,10 @@
         <classShapeMoniker Id="f80771b4-7ad8-48e3-b116-9f9c6cfac56d" />
       </nodes>
     </associationConnector>
-    <classShape Id="0e8f57ea-c869-4adc-9293-33fde715ebc9" absoluteBounds="6.75, 2.5, 2, 2.3478011067708326">
+    <classShape Id="1d051809-64ab-423a-b3d5-ebde77d1540b" absoluteBounds="7.75, 2.625, 2, 2.5401025390625">
       <DataClassMoniker Name="/BDConxDataContext/vUsuarios" />
       <nestedChildShapes>
-        <elementListCompartment Id="db64af05-fe2f-4c99-9e4b-fa0a72cb8f21" absoluteBounds="6.765, 2.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="03cca554-c4be-4093-98a0-11bd7fc0c9c0" absoluteBounds="7.765, 3.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

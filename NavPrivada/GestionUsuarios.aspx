@@ -74,38 +74,40 @@
     <div class="uk-align-center">
         <div class="uk-container">
             <div class="uk-card uk-card-body uk-card-default uk-overflow-auto">
-                <asp:GridView ID="GrillaUsuarios" CssClass="uk-table uk-table-divider uk-table-small" runat="server" AutoGenerateColumns="False" BorderStyle="None" GridLines="None" OnRowCancelingEdit="GrillaUsuarios_RowCancelingEdit" OnRowDataBound="GrillaUsuarios_RowDataBound" OnRowDeleting="GrillaUsuarios_RowDeleting" OnRowEditing="GrillaUsuarios_RowEditing" OnRowUpdating="GrillaUsuarios_RowUpdating">
+                <asp:GridView ID="GrillaUsuarios" CssClass="uk-table uk-table-divider uk-table-small" runat="server" AutoGenerateColumns="False" 
+                    BorderStyle="None" GridLines="None" OnRowCancelingEdit="GrillaUsuarios_RowCancelingEdit" OnRowDataBound="GrillaUsuarios_RowDataBound" 
+                    OnRowDeleting="GrillaUsuarios_RowDeleting" OnRowEditing="GrillaUsuarios_RowEditing" OnRowUpdating="GrillaUsuarios_RowUpdating" DataKeyNames="IdUsuario">
                     <Columns>
                         <asp:TemplateField HeaderText="Nombre">
                             <ItemTemplate>
-                                <asp:Label ID="lbl_Nombre" runat="server" Text='<%# Eval("Nombre") %>'></asp:Label>
+                                <asp:Label ID="lbl_nombre" runat="server" Text='<%# Eval("Nombre") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Nombre" CssClass="uk-input" runat="server" Text='<%# Eval("Nombre") %>'></asp:TextBox>
+                                <asp:TextBox ID="txt_nombre" CssClass="uk-input" runat="server" Text='<%# Eval("Nombre") %>'></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Apellido">
                             <ItemTemplate>
-                                <asp:Label ID="lbl_Apellido" runat="server" Text='<%# Eval("Apellido") %>'></asp:Label>
+                                <asp:Label ID="lbl_apellido" runat="server" Text='<%# Eval("Apellido") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Apellido" CssClass="uk-input" runat="server" Text='<%# Eval("Apellido") %>'></asp:TextBox>
+                                <asp:TextBox ID="txt_apellido" CssClass="uk-input" runat="server" Text='<%# Eval("Apellido") %>'></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Correo">
                             <ItemTemplate>
-                                <asp:Label ID="lbl_Correo" runat="server" Text='<%# Eval("Correo") %>'></asp:Label>
+                                <asp:Label ID="lbl_correo" runat="server" Text='<%# Eval("Correo") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Correo" CssClass="uk-input" runat="server" Text='<%# Eval("Correo") %>'></asp:TextBox>
+                                <asp:TextBox ID="txt_correo" CssClass="uk-input" runat="server" Text='<%# Eval("Correo") %>'></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Contraseña">
                             <ItemTemplate>
-                                <asp:Label ID="lbl_Password" runat="server" Text=*****></asp:Label>
+                                <asp:Label ID="lbl_password" runat="server" Text=*****></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_Password" CssClass="uk-input" runat="server" Text='<%# Eval("Password") %>' TextMode="Password"></asp:TextBox>
+                                <asp:TextBox ID="txt_password" CssClass="uk-input" runat="server" Text='<%# Eval("Password") %>' TextMode="Password"></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Estado">

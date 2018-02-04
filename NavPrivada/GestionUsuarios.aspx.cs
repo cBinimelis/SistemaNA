@@ -111,19 +111,53 @@ public partial class NavPrivada_GestionUsuarios : System.Web.UI.Page
 
     protected void GrillaUsuarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
-
+        GridViewRow row = GrillaUsuarios.Rows[e.RowIndex];
+        int UserID = Convert.ToInt32(GrillaUsuarios.DataKeys[e.RowIndex].Values[0]);
+        String Nombre = (row.FindControl("txt_nombre") as TextBox).Text.Trim();
+        String Apellido = (row.FindControl("txt_apellido") as TextBox).Text.Trim();
+        String Correo = (row.FindControl("txt_correo") as TextBox).Text.Trim();
+        String Password = (row.FindControl("txt_password") as TextBox).Text.Trim();
+        int dde = (row.FindControl("dd_estado") as DropDownList).SelectedIndex;
+        int ddt = (row.FindControl("dd_tipo") as DropDownList).SelectedIndex;
+        if (Nombre.Equals("") || Apellido.Equals("") || Correo.Equals("") || Password.Equals("") || dde == 0 || ddt == 0)
+        {
+            Mensaje("No tan rapido", "No puedes dejar campos vacios", "error");
+        }
+        else
+        {
+            bdc = new BDConxDataContext();
+            Usuarios us = (from u in bdc.Usuarios where u.IdUsuario == UserID select u).FirstOrDefault();
+            us.Nombre = Nombre;
+            us.Apellido = Apellido;
+            us.Correo = Correo;
+            us.Password = Password;
+            us.IdEstadoUsuario = dde;
+            us.IdTipoUsuario = ddt;
+            bdc.SubmitChanges();
+            GrillaUsuarios.EditIndex = -1;
+            Mensaje("Completado con exito", "Se han actualizado los datos", "success");
+            this.BindGrid();
+        }
     }
 
     protected void GrillaUsuarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
+        GridViewRow row = GrillaUsuarios.Rows[e.RowIndex];
+        int UserID = Convert.ToInt32(GrillaUsuarios.DataKeys[e.RowIndex].Values[0]);
+        bdc = new BDConxDataContext();
+        Usuarios us = (from u in bdc.Usuarios where u.IdUsuario == UserID select u).FirstOrDefault();
+        us.IdEstadoUsuario = 3;
+        bdc.SubmitChanges();
+        GrillaUsuarios.EditIndex = -1;
         Mensaje("Felicidades", "Usuario Eliminado del sistema", "success");
+        this.BindGrid();
     }
 
     private void Mensaje(String Tit, String Msg, String Stat)
     {
         ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Alerta('" + Tit + "','" + Msg + "','" + Stat + "');", true);
     }
-    
+
     private void limpiar()
     {
         txt_NombreN.Text = "";

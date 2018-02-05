@@ -31,11 +31,11 @@
                             <ul class="uk-nav uk-nav-default">
                                 <li class="uk-nav-header">Ventas</li>
                                 <li><a href="#">Realizar Venta</a></li>
-                                <li><a href="#">Productos</a></li>
                                 <li><a href="#">Ver Ventas</a></li>
                                 <li class="uk-nav-divider"></li>
                                 <li class="uk-nav-header">Gestion</li>
                                 <li><a href="GestionUsuarios.aspx">Usuarios</a></li>
+                                <li><a href="GestionProductos.aspx">Productos</a></li>
                                 <li><a href="#">Tiendas</a></li>
                                 <li><a href="#">Conexiones</a></li>
                                 <li class="uk-nav-divider"></li>
@@ -53,7 +53,6 @@
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
                                     <li><a href="#">Realizar Venta</a></li>
-                                    <li><a href="#">Productos</a></li>
                                     <li><a href="#">Ver Ventas</a></li>
                                 </ul>
                             </div>
@@ -64,6 +63,7 @@
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
                                     <li><a href="GestionUsuarios.aspx">Usuarios</a></li>
+                                    <li><a href="GestionProductos.aspx">Productos</a></li>
                                     <li><a href="#">Tiendas</a></li>
                                     <li><a href="#">Conexiones</a></li>
                                 </ul>

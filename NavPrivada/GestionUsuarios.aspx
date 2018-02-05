@@ -4,11 +4,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="uk-section uk-align-center">
+    <h1 class=" uk-heading-primary uk-text-center">Gestion de Usuarios</h1>
+    <div class="uk-section-small uk-align-center">
         <div class="uk-container">
             <div class="uk-card uk-card-secondary">
                 <div class="uk-card-body" uk-grid>
-                    <h1 class="uk-card-title uk-width-1-1">Gestion de Usuarios</h1>
+                    <h1 class="uk-card-title uk-width-1-1">Agregar nuevo usuario</h1>
                     <div class="uk-width-1-2@m">
                         <p>Nombre</p>
                         <div class="uk-inline">
@@ -58,7 +59,7 @@
                     </div>
                     <div class="uk-width-1-1">
                         <div class="uk-inline uk-position-bottom-center uk-position-relative">
-                            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                            <span class="uk-form-icon" uk-icon="icon: plus"></span>
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
                                     <asp:Button ID="btn_crear" CssClass="uk-button uk-button-secondary uk-button-large uk-width-1-1" runat="server" Text="Crear Usuario" OnClick="btn_crear_Click" />

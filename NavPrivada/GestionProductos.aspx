@@ -21,7 +21,8 @@
     <div class="uk-container">
         <div class="uk-card uk-card-default">
             <div class="uk-card-body">
-                <asp:GridView ID="GrillaProductos" CssClass="uk-table uk-table-divider uk-table-small" DataKeyNames="IdProducto" runat="server" GridLines="None">
+                <asp:GridView ID="GrillaProductos" CssClass="uk-table uk-table-divider uk-table-small" DataKeyNames="IdProducto" AutoGenerateColumns="false"
+                    runat="server" GridLines="None" OnRowCancelingEdit="GrillaProductos_RowCancelingEdit" OnRowDataBound="GrillaProductos_RowDataBound" OnRowDeleting="GrillaProductos_RowDeleting" OnRowEditing="GrillaProductos_RowEditing" OnRowUpdating="GrillaProductos_RowUpdating">
                     <Columns>
                         <asp:TemplateField HeaderText="Codigo de Barras">
                             <ItemTemplate>
@@ -47,22 +48,14 @@
                                 <asp:TextBox ID="txt_precio" CssClass="uk-input" runat="server"></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Unidades">
-                            <ItemTemplate>
-                                <asp:Label ID="lbl_unidades" runat="server" Text='<%# Eval("Unidades") %>'></asp:Label>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_unidades" CssClass="uk-input" runat="server"></asp:TextBox>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Fecha de Creacion">
                             <ItemTemplate>
-                                <asp:Label ID="lbl_fecha" runat="server" Text='<%# Eval("FechaCreacion") %>'></asp:Label>
+                                <asp:Label ID="lbl_fecha" runat="server" Text='<%# Eval("Fecha_Creacion") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Creador">
                             <ItemTemplate>
-                                <asp:Label ID="lbl_idusuario" runat="server" Text='<%# Eval("IdUsuario") %>'></asp:Label>
+                                <asp:Label ID="lbl_idusuario" runat="server" Text='<%# Eval("Usuario") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

@@ -34,10 +34,16 @@
         <classShapeMoniker Id="f80771b4-7ad8-48e3-b116-9f9c6cfac56d" />
       </nodes>
     </associationConnector>
-    <classShape Id="1d051809-64ab-423a-b3d5-ebde77d1540b" absoluteBounds="7.75, 2.625, 2, 2.5401025390625">
+    <classShape Id="1d051809-64ab-423a-b3d5-ebde77d1540b" absoluteBounds="7.625, 3.75, 2, 2.5401025390625">
       <DataClassMoniker Name="/BDConxDataContext/vUsuarios" />
       <nestedChildShapes>
-        <elementListCompartment Id="03cca554-c4be-4093-98a0-11bd7fc0c9c0" absoluteBounds="7.765, 3.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="03cca554-c4be-4093-98a0-11bd7fc0c9c0" absoluteBounds="7.64, 4.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b474ab2b-4708-4328-a05c-64720a9a9fcc" absoluteBounds="7.625, 1.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/BDConxDataContext/vProductos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a25c938-6014-4f8a-921a-c34bb7167bf1" absoluteBounds="7.6400000000000006, 1.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

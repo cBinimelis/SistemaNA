@@ -101,6 +101,14 @@ public partial class BDConxDataContext : System.Data.Linq.DataContext
 			return this.GetTable<vUsuarios>();
 		}
 	}
+	
+	public System.Data.Linq.Table<vProductos> vProductos
+	{
+		get
+		{
+			return this.GetTable<vProductos>();
+		}
+	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuarios")]
@@ -785,6 +793,159 @@ public partial class vUsuarios
 			if ((this._DescTipo != value))
 			{
 				this._DescTipo = value;
+			}
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vProductos")]
+public partial class vProductos
+{
+	
+	private int _IdProducto;
+	
+	private string _CodBarra;
+	
+	private string _Descripcion;
+	
+	private int _Precio;
+	
+	private System.Nullable<System.DateTime> _Fecha_Creacion;
+	
+	private string _Tipo;
+	
+	private string _Estado;
+	
+	private string _Usuario;
+	
+	public vProductos()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProducto", DbType="Int NOT NULL")]
+	public int IdProducto
+	{
+		get
+		{
+			return this._IdProducto;
+		}
+		set
+		{
+			if ((this._IdProducto != value))
+			{
+				this._IdProducto = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodBarra", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string CodBarra
+	{
+		get
+		{
+			return this._CodBarra;
+		}
+		set
+		{
+			if ((this._CodBarra != value))
+			{
+				this._CodBarra = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+	public string Descripcion
+	{
+		get
+		{
+			return this._Descripcion;
+		}
+		set
+		{
+			if ((this._Descripcion != value))
+			{
+				this._Descripcion = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Precio", DbType="Int NOT NULL")]
+	public int Precio
+	{
+		get
+		{
+			return this._Precio;
+		}
+		set
+		{
+			if ((this._Precio != value))
+			{
+				this._Precio = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Fecha Creacion]", Storage="_Fecha_Creacion", DbType="Date")]
+	public System.Nullable<System.DateTime> Fecha_Creacion
+	{
+		get
+		{
+			return this._Fecha_Creacion;
+		}
+		set
+		{
+			if ((this._Fecha_Creacion != value))
+			{
+				this._Fecha_Creacion = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string Tipo
+	{
+		get
+		{
+			return this._Tipo;
+		}
+		set
+		{
+			if ((this._Tipo != value))
+			{
+				this._Tipo = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string Estado
+	{
+		get
+		{
+			return this._Estado;
+		}
+		set
+		{
+			if ((this._Estado != value))
+			{
+				this._Estado = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(52)")]
+	public string Usuario
+	{
+		get
+		{
+			return this._Usuario;
+		}
+		set
+		{
+			if ((this._Usuario != value))
+			{
+				this._Usuario = value;
 			}
 		}
 	}

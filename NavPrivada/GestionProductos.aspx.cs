@@ -13,7 +13,7 @@ public partial class NavPrivada_GestProd : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            //this.BindGrid();
+            this.BindGrid();
             llenaCategoria();
         }
     }
@@ -21,12 +21,42 @@ public partial class NavPrivada_GestProd : System.Web.UI.Page
     private void BindGrid()
     {
         bdc = new BDConxDataContext();
-        GrillaProductos.DataSource = from vUsuarios in bdc.vUsuarios select vUsuarios;
+        GrillaProductos.DataSource = from vProductos in bdc.vProductos select vProductos;
         GrillaProductos.DataBind();
     }
 
     private void llenaCategoria()
     {
 
+    }
+
+    protected void GrillaProductos_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+
+    }
+
+    protected void GrillaProductos_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+
+    }
+
+    protected void GrillaProductos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+    {
+
+    }
+
+    protected void GrillaProductos_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+
+    }
+
+    protected void GrillaProductos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+
+    }
+
+    private void Mensaje(String Tit, String Msg, String Stat)
+    {
+        ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Alerta('" + Tit + "','" + Msg + "','" + Stat + "');", true);
     }
 }

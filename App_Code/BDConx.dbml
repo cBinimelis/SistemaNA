@@ -9,6 +9,8 @@
       <Column Name="Password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="IdEstadoUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdTipoUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Usuarios_Productos" Member="Productos" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="Productos" />
+      <Association Name="Usuarios_Tienda" Member="Tienda" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="Tienda" />
       <Association Name="EstadoUsuario_Usuarios" Member="EstadoUsuario" ThisKey="IdEstadoUsuario" OtherKey="IdEstadoUsuario" Type="EstadoUsuario" IsForeignKey="true" />
       <Association Name="TipoUsuario_Usuarios" Member="TipoUsuario" ThisKey="IdTipoUsuario" OtherKey="IdTipoUsuario" Type="TipoUsuario" IsForeignKey="true" />
     </Type>
@@ -50,6 +52,54 @@
       <Column Name="Tipo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Estado" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Usuario" Type="System.String" DbType="VarChar(52)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstadoTienda" Member="EstadoTienda">
+    <Type Name="EstadoTienda">
+      <Column Name="idEstadoTienda" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Association Name="EstadoTienda_Tienda" Member="Tienda" ThisKey="idEstadoTienda" OtherKey="IdEstadoTienda" Type="Tienda" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoProducto" Member="TipoProducto">
+    <Type Name="TipoProducto">
+      <Column Name="IdTipoProducto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Abreviacion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TipoProducto_Productos" Member="Productos" ThisKey="IdTipoProducto" OtherKey="IdTipoProducto" Type="Productos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstadoProducto" Member="EstadoProducto">
+    <Type Name="EstadoProducto">
+      <Column Name="IdEstadoProducto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="EstadoProducto_Productos" Member="Productos" ThisKey="IdEstadoProducto" OtherKey="IdEstadoProducto" Type="Productos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Productos" Member="Productos">
+    <Type Name="Productos">
+      <Column Name="IdProducto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodBarra" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Precio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="IdTipoProducto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoProducto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="EstadoProducto_Productos" Member="EstadoProducto" ThisKey="IdEstadoProducto" OtherKey="IdEstadoProducto" Type="EstadoProducto" IsForeignKey="true" />
+      <Association Name="TipoProducto_Productos" Member="TipoProducto" ThisKey="IdTipoProducto" OtherKey="IdTipoProducto" Type="TipoProducto" IsForeignKey="true" />
+      <Association Name="Usuarios_Productos" Member="Usuarios" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="Usuarios" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tienda" Member="Tienda">
+    <Type Name="Tienda">
+      <Column Name="IdTienda" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoTienda" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="EstadoTienda_Tienda" Member="EstadoTienda" ThisKey="IdEstadoTienda" OtherKey="idEstadoTienda" Type="EstadoTienda" IsForeignKey="true" />
+      <Association Name="Usuarios_Tienda" Member="Usuarios" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="Usuarios" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

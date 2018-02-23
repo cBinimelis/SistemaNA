@@ -8,7 +8,7 @@ WHERE u.IdEstadoUsuario != 3
 SELECT * FROM vUsuarios;
 
 CREATE VIEW vProductos AS
-SELECT p.IdProducto, p.CodBarra, p.Descripcion,p.Precio, CONVERT(date,p.FechaCreacion,101) AS 'Fecha Creacion' , t.Descripcion AS 'Tipo', e.Descripcion AS 'Estado', u.Nombre +' '+ LEFT(u.Apellido, 1) AS 'Usuario'
+SELECT p.IdProducto, p.CodBarra, p.Descripcion,p.Precio, CONVERT(date, p.FechaCreacion, 103) AS 'Fecha Creacion' , t.Descripcion AS 'Tipo', e.Descripcion AS 'Estado', u.Nombre +' '+ LEFT(u.Apellido, 1) AS 'Usuario'
 FROM Productos p
 INNER JOIN TipoProducto t ON t.IdTipoProducto = p.IdTipoProducto
 INNER JOIN EstadoProducto e ON e.IdEstadoProducto = p.IdEstadoProducto

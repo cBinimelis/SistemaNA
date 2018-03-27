@@ -7,6 +7,8 @@ WHERE u.IdEstadoUsuario != 3
 
 SELECT * FROM vUsuarios;
 
+
+
 CREATE VIEW vProductos AS
 SELECT p.IdProducto, p.CodBarra, p.Descripcion,p.Precio, CONVERT(date, p.FechaCreacion, 103) AS 'Fecha Creacion' , t.Descripcion AS 'Tipo', e.Descripcion AS 'Estado', u.Nombre +' '+ LEFT(u.Apellido, 1) AS 'Usuario'
 FROM Productos p
@@ -15,3 +17,14 @@ INNER JOIN EstadoProducto e ON e.IdEstadoProducto = p.IdEstadoProducto
 INNER JOIN Usuarios u ON u.IdUsuario = p.IdUsuario
 
 SELECT * FROM vProductos
+
+
+
+CREATE PROCEDURE AgregarCodigo @descripcion VARCHAR, @tiempo DATETIME
+AS
+BEGIN
+SELECT RIGHT('00000'+CAST(P.IdProducto AS VARCHAR(3)),3) as ID, TP.Abreviacion
+FROM Productos P
+INNER JOIN TipoProducto tp on TP.IdTipoProducto= P.IdTipoProducto
+Where P.Descripcion = @descripcion and FechaCreacion = @tiempo	
+END

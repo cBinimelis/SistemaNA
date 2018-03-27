@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +19,10 @@ public partial class NavPrivada_GestProd : System.Web.UI.Page
             llenaTipo();
         }
     }
+
+
+    int idUsuario;
+    DateTime Tiempo = System.DateTime.Now;
 
     private void BindGrid()
     {
@@ -53,10 +58,22 @@ public partial class NavPrivada_GestProd : System.Web.UI.Page
             }
             else
             {
+                SqlDataReader usuario = sql.consulta("SELECT * FROM Usuarios WHERE Correo = '" + Session["Admin"].ToString() + "'");
+                if (usuario.Read())
+                {
+                    idUsuario = Convert.ToInt32(usuario[0].ToString());
+                }
                 bdc = new BDConxDataContext();
                 Productos p = new Productos();
                 p.Descripcion = txt_Descripcion.Text;
                 p.Precio = Convert.ToInt32(txt_Precio.Text);
+                p.FechaCreacion = Tiempo;
+                p.IdEstadoProducto = dd_estadoN.SelectedIndex;
+                p.IdTipoProducto = dd_tipoN.SelectedIndex;
+                p.IdUsuario = idUsuario;
+                bdc.Productos.InsertOnSubmit(p);
+                bdc.SubmitChanges();
+                codigoBarras(Tiempo, txt_Descripcion.Text);
             }
         }
         catch (Exception ex)
@@ -65,9 +82,31 @@ public partial class NavPrivada_GestProd : System.Web.UI.Page
         }
     }
 
+    //CODIGO PARA ASIGNAR UN CODIGO DE BARRAS A LOS PRODUCTOS NUEVOS
+    private void codigoBarras(DateTime Tiempo, String Descripcion)
+    {
+        SqlDataReader BaseCod = sql.consulta("EXEC AgregarCodigo(" + Tiempo + "," + Descripcion + ")");
+        if (BaseCod.Read())
+        {
+            int do_it =sql.ejecutar("UPDATE Productos SET CodBarra ='NOVA-" + BaseCod[2] + "-" + BaseCod[1] + "' WHERE IdProducto = " + BaseCod[0] + "");
+            if (do_it > 0)
+            {
+                Mensaje("Felicidades", "Se ha creado el producto exitosamente", "success");
+            }
+            else
+            {
+                Mensaje("Por poquito", "Se ha creado el producto, pero sin codigo de barras", "warning");
+            }
+        }
+    }
+
+
     protected void GrillaProductos_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-
+        if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != GrillaProductos.EditIndex)
+        {
+            (e.Row.Cells[5].Controls[2] as LinkButton).Attributes["onclick"] = "return Delete(this, event);";
+        }
     }
 
     protected void GrillaProductos_RowEditing(object sender, GridViewEditEventArgs e)

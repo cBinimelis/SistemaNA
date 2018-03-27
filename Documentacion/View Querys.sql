@@ -15,16 +15,17 @@ FROM Productos p
 INNER JOIN TipoProducto t ON t.IdTipoProducto = p.IdTipoProducto
 INNER JOIN EstadoProducto e ON e.IdEstadoProducto = p.IdEstadoProducto
 INNER JOIN Usuarios u ON u.IdUsuario = p.IdUsuario
+WHERE p.IdEstadoProducto !=4
 
 SELECT * FROM vProductos
 
 
 
-CREATE PROCEDURE AgregarCodigo @descripcion VARCHAR, @tiempo DATETIME
+ALTER PROCEDURE AgregarCodigo @descripcion VARCHAR(50)
 AS
 BEGIN
-SELECT RIGHT('00000'+CAST(P.IdProducto AS VARCHAR(3)),3) as ID, TP.Abreviacion
+SELECT P.IdProducto as ID ,RIGHT('00000'+CAST(P.IdProducto AS VARCHAR(5)),5) as IDF, TP.Abreviacion
 FROM Productos P
 INNER JOIN TipoProducto tp on TP.IdTipoProducto= P.IdTipoProducto
-Where P.Descripcion = @descripcion and FechaCreacion = @tiempo	
+Where P.Descripcion = @descripcion
 END

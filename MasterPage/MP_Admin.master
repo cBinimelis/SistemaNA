@@ -30,7 +30,7 @@
                         <div class="uk-offcanvas-bar">
                             <ul class="uk-nav uk-nav-default">
                                 <li class="uk-nav-header">Ventas</li>
-                                <li><a href="#">Realizar Venta</a></li>
+                                <li><a href="Catalogo.aspx">Realizar Venta</a></li>
                                 <li><a href="#">Ver Ventas</a></li>
                                 <li class="uk-nav-divider"></li>
                                 <li class="uk-nav-header">Gestion</li>
@@ -52,7 +52,7 @@
                             <a href="#">Ventas</a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li><a href="#">Realizar Venta</a></li>
+                                    <li><a href="Catalogo.aspx">Realizar Venta</a></li>
                                     <li><a href="#">Ver Ventas</a></li>
                                 </ul>
                             </div>

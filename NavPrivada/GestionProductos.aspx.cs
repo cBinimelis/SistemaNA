@@ -48,6 +48,7 @@ public partial class NavPrivada_GestProd : System.Web.UI.Page
         dd_tipoN.DataValueField = "IdTipoProducto";
         dd_tipoN.DataBind();
     }
+
     protected void btn_crear_Click(object sender, EventArgs e)
     {
         try
@@ -68,12 +69,14 @@ public partial class NavPrivada_GestProd : System.Web.UI.Page
                 p.Descripcion = txt_Descripcion.Text;
                 p.Precio = Convert.ToInt32(txt_Precio.Text);
                 p.FechaCreacion = Tiempo;
-                p.IdEstadoProducto = dd_estadoN.SelectedIndex;
-                p.IdTipoProducto = dd_tipoN.SelectedIndex;
+                p.IdEstadoProducto = Convert.ToInt32(dd_estadoN.SelectedValue);
+                p.IdTipoProducto = Convert.ToInt32(dd_tipoN.SelectedValue);
                 p.IdUsuario = idUsuario;
                 bdc.Productos.InsertOnSubmit(p);
                 bdc.SubmitChanges();
                 codigoBarras(Tiempo, txt_Descripcion.Text);
+                limpiar();
+                BindGrid();
             }
         }
         catch (Exception ex)
@@ -85,7 +88,7 @@ public partial class NavPrivada_GestProd : System.Web.UI.Page
     //CODIGO PARA ASIGNAR UN CODIGO DE BARRAS A LOS PRODUCTOS NUEVOS
     private void codigoBarras(DateTime Tiempo, String Descripcion)
     {
-        SqlDataReader BaseCod = sql.consulta("EXEC AgregarCodigo(" + Tiempo + "," + Descripcion + ")");
+        SqlDataReader BaseCod = sql.consulta("EXEC AgregarCodigo '" + Descripcion + "'");
         if (BaseCod.Read())
         {
             int do_it =sql.ejecutar("UPDATE Productos SET CodBarra ='NOVA-" + BaseCod[2] + "-" + BaseCod[1] + "' WHERE IdProducto = " + BaseCod[0] + "");
@@ -123,17 +126,50 @@ public partial class NavPrivada_GestProd : System.Web.UI.Page
 
     protected void GrillaProductos_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
-
+        GridViewRow row = GrillaProductos.Rows[e.RowIndex];
+        int ProductID = Convert.ToInt32(GrillaProductos.DataKeys[e.RowIndex].Values[0]);
+        String CodBarra = (row.FindControl("txt_codbarra") as TextBox).Text.Trim();
+        String Descripcion = (row.FindControl("txt_descripcion") as TextBox).Text.Trim();
+        String Precio = (row.FindControl("txt_precio") as TextBox).Text.Trim();
+        if (CodBarra.Equals("") || Descripcion.Equals("") || Precio.Equals(""))
+        {
+            Mensaje("No tan rapido", "No puedes dejar campos vacios", "error");
+        }
+        else
+        {
+            bdc = new BDConxDataContext();
+            Productos pr = (from p in bdc.Productos where p.IdProducto == ProductID select p).FirstOrDefault();
+            pr.CodBarra = CodBarra;
+            pr.Descripcion = Descripcion;
+            pr.Precio = Convert.ToInt32(Precio);
+            bdc.SubmitChanges();
+            GrillaProductos.EditIndex = -1;
+            Mensaje("Completado con exito", "Se han actualizado los datos", "success");
+            this.BindGrid();
+        }
     }
 
     protected void GrillaProductos_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-
+        GridViewRow row = GrillaProductos.Rows[e.RowIndex];
+        int ProductID = Convert.ToInt32(GrillaProductos.DataKeys[e.RowIndex].Values[0]);
+        bdc = new BDConxDataContext();
+        Productos pr = (from p in bdc.Productos where p.IdProducto == ProductID select p).FirstOrDefault();
+        pr.IdEstadoProducto = 4;
+        bdc.SubmitChanges();
+        GrillaProductos.EditIndex = -1;
+        Mensaje("Felicidades", "Producto Eliminado del sistema", "success");
+        this.BindGrid();
     }
 
     private void Mensaje(String Tit, String Msg, String Stat)
     {
         ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "Alerta('" + Tit + "','" + Msg + "','" + Stat + "');", true);
     }
-
+    
+    private void limpiar()
+    {
+        txt_Descripcion.Text = "";
+        txt_Precio.Text = "";
+    }
 }

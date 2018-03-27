@@ -64,7 +64,7 @@
                                 <asp:Label ID="lbl_codbarra" runat="server" Text='<%# Eval("CodBarra") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_codbarra" CssClass="uk-input" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txt_codbarra" CssClass="uk-input" runat="server" Text='<%# Eval("CodBarra") %>'></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Descripcion">
@@ -72,7 +72,7 @@
                                 <asp:Label ID="lbl_descripcion" runat="server" Text='<%# Eval("Descripcion") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_descripcion" CssClass="uk-input" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txt_descripcion" CssClass="uk-input" runat="server" Text='<%# Eval("Descripcion") %>'></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Precio">
@@ -80,7 +80,7 @@
                                 <asp:Label ID="lbl_precio" runat="server" Text='<%# Eval("Precio") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_precio" CssClass="uk-input" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txt_precio" CssClass="uk-input" runat="server" Text='<%# Eval("Precio") %>'></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Fecha de Creacion">

@@ -6,7 +6,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="uk-section uk-align-center">
         <div class="uk-container">
-            <div class="uk-card uk-card-body uk-card-secondary">
+            <div class="uk-card uk-card-large uk-card-body uk-card-secondary">
                 <div class="uk-card-header uk-align-center">
                     <h1 class="uk-card-title uk-align-center">Generador de Codigo de Barra</h1>
                 </div>

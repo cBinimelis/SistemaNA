@@ -2,19 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Data.SqlClient;
 
 namespace SistemaNA
 {
+
     public class Producto
     {
+        Conexion sql = new Conexion();
+
         public int Id { get; set; }
-        public decimal Precio { get; set; }
+        public int Precio { get; set; }
         public string Descripcion { get; set; }
 
         public Producto(int pId)
         {
-
+            SqlDataReader Prod = sql.consulta("SELECT * FROM Productos WHERE IdProducto = '" + pId + "'");
+            if (Prod.Read())
+            {
+                Id = Convert.ToInt32(Prod[0].ToString());
+                Descripcion = Prod[2].ToString();
+                Precio = Convert.ToInt32(Prod[3].ToString());
+            }
             /*
             Id = pId;
             //esta ser la lista de productos y precios

@@ -151,7 +151,6 @@ public partial class NavPrivada_GestProd : System.Web.UI.Page
 
     protected void GrillaProductos_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        GridViewRow row = GrillaProductos.Rows[e.RowIndex];
         int ProductID = Convert.ToInt32(GrillaProductos.DataKeys[e.RowIndex].Values[0]);
         bdc = new BDConxDataContext();
         Productos pr = (from p in bdc.Productos where p.IdProducto == ProductID select p).FirstOrDefault();

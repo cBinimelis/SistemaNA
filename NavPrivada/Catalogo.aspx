@@ -10,62 +10,39 @@
                     <h1 class="uk-card-title uk-align-center">Catalogo de Productos</h1>
                 </div>
 
-                <asp:GridView ID="grillaProductos"  CssClass="uk-table uk-table-divider uk-table-small" DataKeyNames="IdProducto" AutoGenerateColumns="false"
-                    GridLines="None" runat="server">
-
+                <asp:GridView ID="grillaProductos" CssClass="uk-table uk-table-divider uk-table-small" DataKeyNames="IdProducto" AutoGenerateColumns="false"
+                    GridLines="None" runat="server" OnRowCommand="grillaProductos_RowCommand">
+                    <Columns>
+                        <asp:TemplateField HeaderText="ID Producto">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_id" runat="server" Text='<%# Eval("IdProducto") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Codigo de Barras">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_codbarra" runat="server" Text='<%# Eval("CodBarra") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Descripcion">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_descripcion" runat="server" Text='<%# Eval("Descripcion") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Precio">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_precio" runat="server" Text='<%# Eval("Precio") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Precio">
+                            <ItemTemplate>
+                                <asp:Button ID="Button1" runat="server" Text="Agregar" CommandName="Select" CommandArgument="<%# Container.DataItemIndex %>" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
                 </asp:GridView>
+                <asp:Button ID="btn_verCarrito" CssClass="uk-button uk-button-secondary uk-width-1-1" runat="server" OnClick="btn_verCarrito_Click" Text="Ver Carro" />
 
             </div>
-
-
-            <table style="width: 600px; border: 1px;">
-                <thead>
-                    <tr style="border: 1px;">
-                        <th colspan="2" style="font-size: x-large; font-weight: bold; text-align: center; text-transform: uppercase; background-color: #999999; color: #FFFFFF;">Tienda al mayoreo
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border: 1px;">
-                        <td class="style2" style="font-size: larger; font-weight: bold; text-align: left; text-transform: capitalize;">Zapatos Deportivos
-                        </td>
-                        <td class="style3">
-                            <asp:LinkButton ID="lbZapatos" runat="server" OnClick="lbZapatos_Click">Agregar al Carrito</asp:LinkButton>
-                        </td>
-                    </tr>
-                    <tr style="border: 1px;">
-                        <td class="style2" style="font-size: larger; font-weight: bold; text-align: left; text-transform: capitalize;">Camisas Deportivas
-                        </td>
-                        <td class="style3">
-                            <asp:LinkButton ID="lbCamisas" runat="server" OnClick="lbCamisas_Click">Agregar al Carrito</asp:LinkButton>
-                        </td>
-                    </tr>
-                    <tr style="border: 1px;">
-                        <td class="style2" style="font-size: larger; font-weight: bold; text-align: left; text-transform: capitalize;">Pantalones Cortos
-                        </td>
-                        <td class="style3">
-                            <asp:LinkButton ID="lbPantalones" runat="server" OnClick="lbPantalones_Click">Agregar al Carrito</asp:LinkButton>
-                        </td>
-                    </tr>
-                    <tr style="border: 1px;">
-                        <td class="style2" style="font-size: larger; font-weight: bold; text-align: left; text-transform: capitalize;">Sandalias
-                        </td>
-                        <td class="style3">
-                            <asp:LinkButton ID="lbSandalias" runat="server" OnClick="lbSandalias_Click">Agregar al Carrito</asp:LinkButton>
-                        </td>
-                    </tr>
-                    <tr style="border: 1px;">
-                        <td class="style2" style="font-size: larger; font-weight: bold; text-align: left; text-transform: capitalize;">Boxer
-                        </td>
-                        <td class="style3">
-                            <asp:LinkButton ID="lbBoxer" runat="server" OnClick="lbBoxer_Click">Agregar al Carrito</asp:LinkButton>
-                        </td>
-                    </tr>
-                    <tr style="border: 1px;">
-                        <td class="style1" colspan="2"></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </asp:Content>
